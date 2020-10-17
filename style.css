@@ -1,0 +1,35 @@
+/* div.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.card-custom:hover {
+    box-shadow: 2px 2px 2px 2px grey;
+    border-radius: 20px;
+}
+
+.custom-collection {
+    height: 350px;
+    width: 260px;
+    margin: 5px;
+    background-size: cover;
+    border-radius: 4px;
+    box-shadow: inset 3px 4px 250px #000;
+}
+
+.custom-collection span{
+    font-size: 20px;
+    display: block;
+    padding-left:8px;
+    position: relative;
+    top:270px;
+}
+
+#loc-title{
+font-size: 40px;
+}
+
+
+.custom-locality:hover {
+ box-shadow: 1px 1px 5px rgb(209, 208, 208);
+    /* border-radius: 20px; */
+} 
