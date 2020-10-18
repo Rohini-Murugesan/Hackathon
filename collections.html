@@ -21,7 +21,9 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-
+    <!-- gmail sign in -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="346748137121-lkir5qc08m3bc5bv88etdr3sh4sgeb5p.apps.googleusercontent.com">
     <div class="container">
         <div class="row">
             <div id="zomato-black" class="col-3 mt-2">ZOMATO</div>
@@ -66,7 +68,8 @@
                   <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fas fa-envelope mr-2"></i> Continue with Email</button>
                 </div>
                 <div class="modal-body">
-                  <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button>
+                  <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-redirecturi="https://competent-wiles-7893dc.netlify.app/collections.html"></div>
                   <hr>
                   <span>New to Zomato? <a class="text-danger">Create account</a></span>
                 </div>              
@@ -99,7 +102,8 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                  <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button>
+                  <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-redirecturi="https://competent-wiles-7893dc.netlify.app/collections.html"></div>
                   <hr>
                   <span>Already have an account? <a class="text-danger">Login</a></span>
                 </div>              
