@@ -1,5 +1,6 @@
 const APIKEY = "d562feeaf7ad62452461ee883ea94f51"
-
+var restDetails;
+var details;
 // * API 
 async function getCollections() {
     let url = "https://developers.zomato.com/api/v2.1/collections?city_id=7"
@@ -10,6 +11,19 @@ async function getCollections() {
         }
     })
     let collections = await apiData.json()
+    return collections
+}
+
+async function getRestaurants(query) {
+    let url = "https://developers.zomato.com/api/v2.1/search?entity_id=7&entity_type=city&q="+query
+    let apiData = await fetch(url, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'user-key': APIKEY
+        }
+    })
+    let collections = await apiData.json()
+    console.log("getRestaurants",collections)
     return collections
 }
 
@@ -168,7 +182,7 @@ let generateLocalities = (localitiesDetails) => {
     }, "div")
     div.append(rowdiv)
 
-    let details = {}
+    details = {}
     for (i = 0; i < localitiesDetails.restaurants.length; i++) {
         data = localitiesDetails.restaurants[i].restaurant.location.locality
         if (data in details) {
@@ -275,8 +289,8 @@ document.getElementById("searchByLocation").addEventListener("click", ()=>{
         }, "div")
         div1.innerHTML = "<i class='fas fa-globe-americas'></i> Detect current location"
         coldiv.append(div1)
-
-        popularLocations = ['Velachery, Chennai','Porur, Chennai','T.Nagar, Chennai']
+        console.log("details",details)
+        popularLocations = Object.keys(details).slice(0,7)//['Velachery, Chennai','Porur, Chennai','T.Nagar, Chennai']
 
         div1 = createElmAndSetAttr({
             'class':'dropdown-header p-2 mt-2',
@@ -296,11 +310,63 @@ document.getElementById("searchByLocation").addEventListener("click", ()=>{
 
         }
     }
-
-
-
 });
 
+
+// * Event Listeners
+document.getElementById("searchByRestaurant").addEventListener("click", ()=>{
+    console.log("hello")
+    let id = document.getElementById("LocationDetails")
+    if(id!==null){
+        id.remove()
+    }else{
+        maindiv = document.getElementById("restaurantsOptions")//createElmAndSetAttr({'class':'container'},"div")
+        rowdiv = createElmAndSetAttr({
+            'class': 'row mt-1',
+            'style':'height:200px',
+            'id' : 'LocationDetails'
+        }, "div")
+        maindiv.append(rowdiv)
+        coldiv = createElmAndSetAttr({
+            'class': 'col-lg-5 offset-6 bg-white',
+            'id':'custom-dropdown-rest'
+        }, "div")
+        rowdiv.append(coldiv)
+        
+        popularLocations = ['Velachery, Chennai','Porur, Chennai','T.Nagar, Chennai']
+        query = document.getElementById("searchByLocation").value
+        div1 = createElmAndSetAttr({
+            'class':'dropdown-header p-2 mt-2',
+            'style':'color:grey'
+        }, "div")
+        div1.innerText = "Popular Restaurants in "+query
+        coldiv.append(div1)
+        getRestaurants(query).then((data) => {
+            restDetails = data
+            console.log("In func",restDetails)
+            showRestaurants(restDetails)
+        }).catch((err) => {
+            console.log(err)
+        })
+
+
+    }
+});
+
+
+let showRestaurants = ()=>{
+            for(i=0;i<5;i++){
+            data  = restDetails.restaurants[i].restaurant
+            div1 = createElmAndSetAttr({
+                'class':'p-1 mt-2 hover-this',
+                'style':'color:grey',
+                'id':data.name,
+                 'onClick':'openRestaurant(this.id)'
+            }, "div")
+            div1.innerText = data.name
+            coldiv.append(div1)
+        }
+}
 
 // Location ------------------------------------------------------------------------------------------------------------------
 let getCurrentLocation = ()=>{
@@ -440,8 +506,4 @@ let createZomatoFooter = ()=>{
     p.innerHTML = "<small>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2020 © Zomato™ Pvt Ltd. All rights reserved.</small>"
     div.append(p)
     
-
-
-
-
 }

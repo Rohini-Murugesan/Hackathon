@@ -39,9 +39,15 @@
     z-index: 1;
 }
 
-#custom-dropdown:hover{
+#custom-dropdown:hover #custom-dropdown-rest:hover{
 cursor: pointer;
 background-color: grey;
+}
+
+#custom-dropdown-rest{
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 2px rgb(189, 189, 189);
+    z-index: 1;
 }
 
 
@@ -49,4 +55,9 @@ background-color: grey;
     font-size: 35px;
     color: black;
     font-family: 'Passion One', cursive;
+  }
+
+  .hover-this:hover{
+      cursor: pointer;
+      background-color: rgb(224, 223, 223);
   }

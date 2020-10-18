@@ -36,6 +36,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
   </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="346748137121-lkir5qc08m3bc5bv88etdr3sh4sgeb5p.apps.googleusercontent.com">
   <div class="container-fluid" id="title" style="width:100%;height:500px">
     <div class="row">
       <div class="col-3 offset-9 mt-5">
@@ -98,7 +100,8 @@
                 </div>
               </div>
               <div class="modal-body">
-                <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button>
+                <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i><div class="g-signin2" data-onsuccess="onSignIn">Continue with Google</div></button> -->
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <hr>
                 <span>Already have an account? <a class="text-danger">Login</a></span>
               </div>              
@@ -121,13 +124,14 @@
         <input class="form-control p-2" type="text" placeholder="Location" id="searchByLocation">
         <div class="p-2 bg-light input-group-append"><i class="fas fa-caret-down"></i></div>
         <input class="form-control p-2" type="text" placeholder="Search for restaurant, cuisine or a dish"
-          aria-label="Search">
+          aria-label="Search" id="searchByRestaurant">
         <div class="input-group-append">
           <span class="input-group-text"><i class="fas fa-search"
               aria-hidden="true"></i></span>
         </div>
       </div>
       <div class="container" id="locationsOptions">
+        <div class="container" id="restaurantsOptions"></div>
         
       </div>
     </div>
