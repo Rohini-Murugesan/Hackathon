@@ -16,20 +16,37 @@
     box-shadow: inset 3px 4px 250px #000;
 }
 
-.custom-collection span{
+.custom-collection span {
     font-size: 20px;
     display: block;
-    padding-left:8px;
+    padding-left: 8px;
     position: relative;
-    top:270px;
+    top: 270px;
 }
 
-#loc-title{
-font-size: 40px;
+#loc-title {
+    font-size: 40px;
 }
 
 
 .custom-locality:hover {
- box-shadow: 1px 1px 5px rgb(209, 208, 208);
-    /* border-radius: 20px; */
-} 
+    box-shadow: 1px 1px 5px rgb(209, 208, 208);
+}
+
+#custom-dropdown{
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 2px rgb(189, 189, 189);
+    z-index: 1;
+}
+
+#custom-dropdown:hover{
+cursor: pointer;
+background-color: grey;
+}
+
+
+#zomato-black {
+    font-size: 35px;
+    color: black;
+    font-family: 'Passion One', cursive;
+  }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medium</title>
+  <title>Zomato</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -38,24 +38,97 @@
   </script>
   <div class="container-fluid" id="title" style="width:100%;height:500px">
     <div class="row">
+      <div class="col-3 offset-9 mt-5">
+        <a class="btn text-white pr-4" style="font-size: 20px;text-decoration: none;" data-toggle="modal" data-target="#myModalLogin">Login</a>
+        <a class="btn text-white" style="font-size: 20px;text-decoration: none;"  data-toggle="modal" data-target="#myModalSignUp">Sign Up</a>
+<!-- myModalLogin -->
+        <div id="myModalLogin" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-body">Login</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+              </div>
+              <div class="modal-body">
+                <input type="tel" class="input-group-text form-control bg-light" placeholder="Phone" pattern="[0-9]{10}" maxlength="10">
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-danger form-control">Send One time Password</button>
+                <div class="row">
+                  <div class="col-5"><hr></div>
+                  <div class="col-2 text-center">or</div>
+                  <div class="col-5"><hr></div>
+                </div>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fas fa-envelope mr-2"></i> Continue with Email</button>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button>
+                <hr>
+                <span>New to Zomato? <a class="text-danger">Create account</a></span>
+              </div>              
+            </div>        
+          </div>
+        </div>
+        <!-- myModalSignUp -->
+        <div id="myModalSignUp" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-body">Sign Up</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+              </div>
+              <div class="modal-body">
+                <input type="text" class="input-group-text form-control bg-light m-2" placeholder="Full Name" maxlength="15">
+                <input type="email" class="input-group-text form-control bg-light m-2" placeholder="Email" maxlength="15">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="Check1">
+                  <label class="form-check-label" for="Check1"><small>I agree to Zomato's <a class="text-danger">Terms of Service, Privacy Policy and Content Policies</a></small></label>
+                </div>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-default border bg-light form-control">Create Account</button>
+                <div class="row mt-3">
+                  <div class="col-5"><hr></div>
+                  <div class="col-2 text-center">or</div>
+                  <div class="col-5"><hr></div>
+                </div>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button>
+                <hr>
+                <span>Already have an account? <a class="text-danger">Login</a></span>
+              </div>              
+            </div>        
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row">
       <div class="col-lg-6 offset-3 ">
         <span id="Zomato" class="mt-5 d-block text-center">ZOMATO</span>
         <span class="text-light" style="font-size:30px;font-family: 'Playfair Display', serif;;">Discover the best food
           & drinks in Chennai</span>
       </div>
-      <div class="col-lg-6 offset-3 mt-5 input-group">
-        <div class="p-2 bg-light input-group-append"><i class="fas fa-map-marker-alt"></i></div>
-        <select class="custom-select" id="Location">
-          <option value="1" selected>Chennai</option>
-          <option value="2">Velachery</option>
-          <option value="3">Thoraipakkam</option>
-        </select>
+      <div class="col-lg-7 offset-2 mt-5 input-group">
+        <div class="p-2 bg-light input-group-append"><i  style="color: rgb(221, 76, 76);"  class="fas fa-map-marker-alt"></i></div>
+        
+        <input class="form-control p-2" type="text" placeholder="Location" id="searchByLocation">
+        <div class="p-2 bg-light input-group-append"><i class="fas fa-caret-down"></i></div>
         <input class="form-control p-2" type="text" placeholder="Search for restaurant, cuisine or a dish"
           aria-label="Search">
         <div class="input-group-append">
-          <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search"
+          <span class="input-group-text"><i class="fas fa-search"
               aria-hidden="true"></i></span>
         </div>
+      </div>
+      <div class="container" id="locationsOptions">
+        
       </div>
     </div>
   </div>
@@ -70,24 +143,28 @@
       <h5 class="font-weight-lighter">Explore curated lists of top restaurants, cafes, pubs, and bars in Chennai, based
         on trends
       </h5>
-      <span class="offset-2"><a class="text-danger" href="#">All collections in Chennai <i
+      <span class="offset-2"><a class="text-danger" href="collections.html">All collections in Chennai <i
             class="fas fa-caret-right"></i></a></span>
     </div>
   </div>
 
   <div class="container" id="locality">
-  <div class="row">
-    <div class="col-12 text-center mt-5" id="loc-title">
-      <span>
-        Popular localities in and around <b>Chennai</b>
-      </span>
+    <div class="row">
+      <div class="col-12 text-center mt-5" id="loc-title">
+        <span>
+          Popular localities in and around <b>Chennai</b>
+        </span>
+      </div>
     </div>
-  </div>  
-  
-  </div>
 
+  </div>
+  <div class="container-fluid mt-5" id="ZomatoFooter" style="background-color: rgb(236, 233, 233);">
 
   <script src="script.js"></script>
+  <script>
+    main()
+    createZomatoFooter()
+  </script>
 </body>
 
 </html>
