@@ -1,148 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zomato</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zomato</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Playfair+Display&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Playfair+Display&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <!-- gmail sign in -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="346748137121-lkir5qc08m3bc5bv88etdr3sh4sgeb5p.apps.googleusercontent.com">
-    <div class="container">
-        <div class="row">
-            <div id="zomato-black" class="col-3 mt-2">ZOMATO</div>
-            <div class="col-6">
-                <div class="mt-3 input-group shadow">
-                    <div class="p-2 bg-light input-group-append rounded"><i  style="color: rgb(221, 76, 76);"  class="fas fa-map-marker-alt"></i></div>
-                    
-                    <input class="form-control p-2" type="text" placeholder="Location" id="searchByLocation">
-                    <div class="p-2 bg-light input-group-append"><i class="fas fa-caret-down"></i></div>
-                    <input class="form-control p-2" type="text" placeholder="Search for restaurant, cuisine or a dish"
-                      aria-label="Search" id="searchByRestaurant">
-                    <div class="input-group-append">
-                      <span class="input-group-text"><i class="fas fa-search"
-                          aria-hidden="true"></i></span>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-3">
-                <a class="btn float-right text-dark" style="font-size: 20px;text-decoration: none;" data-toggle="modal" data-target="#myModalLogin">Login</a>
-                <a class="btn float-right text-dark" style="font-size: 20px;text-decoration: none;"  data-toggle="modal" data-target="#myModalSignUp">Sign Up</a>
-            <!-- myModalLogin -->
-        <div id="myModalLogin" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-body">Login</h2>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  
-                </div>
-                <div class="modal-body">
-                  <input type="tel" class="input-group-text form-control bg-light" placeholder="Phone" pattern="[0-9]{10}" maxlength="10">
-                </div>
-                <div class="modal-body">
-                  <button type="button" class="btn btn-danger form-control">Send One time Password</button>
-                  <div class="row">
-                    <div class="col-5"><hr></div>
-                    <div class="col-2 text-center">or</div>
-                    <div class="col-5"><hr></div>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fas fa-envelope mr-2"></i> Continue with Email</button>
-                </div>
-                <div class="modal-body">
-                  <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
-                  <div class="g-signin2" data-onsuccess="onSignIn" data-redirecturi="https://zomato-clone-guvi.netlify.app/collections.html"></div>
-                  <hr>
-                  <span>New to Zomato? <a class="text-danger">Create account</a></span>
-                </div>              
-              </div>        
-            </div>
-          </div>
-          <!-- myModalSignUp -->
-          <div id="myModalSignUp" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="modal-body">Sign Up</h2>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  
-                </div>
-                <div class="modal-body">
-                  <input type="text" class="input-group-text form-control bg-light m-2" placeholder="Full Name" maxlength="15">
-                  <input type="email" class="input-group-text form-control bg-light m-2" placeholder="Email" maxlength="15">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="Check1">
-                    <label class="form-check-label" for="Check1"><small>I agree to Zomato's <a class="text-danger">Terms of Service, Privacy Policy and Content Policies</a></small></label>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <button type="button" class="btn btn-default border bg-light form-control">Create Account</button>
-                  <div class="row mt-3">
-                    <div class="col-5"><hr></div>
-                    <div class="col-2 text-center">or</div>
-                    <div class="col-5"><hr></div>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
-                  <div class="g-signin2" data-onsuccess="onSignIn" data-redirecturi="https://zomato-clone-guvi.netlify.app/collections.html"></div>
-                  <hr>
-                  <span>Already have an account? <a class="text-danger">Login</a></span>
-                </div>              
-              </div>        
-            </div>
-          </div>
-            </div>
-        </div>
-        <hr>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent">
-              <li class="breadcrumb-item " aria-current="page">Home</li>
-              <li class="breadcrumb-item " aria-current="page">Chennai</li>
-              <li class="breadcrumb-item active" aria-current="page">Collections</li>
-            </ol>
-          </nav>
-          <div class="row">
-              <span style="font-size: 30px;">Collections - Chennai</span>
-          </div>
-          <div class="row">
-            <span style="font-size: 18px;">Create and browse lists of the finest restaurants</span>
-        </div>
-        <div class="row">
-            <div style="font-size: 18px;text-decoration: none;" class="text-danger p-3" id="Handpicked" onclick="handpicked()">Handpicked</div>
-            <a style="font-size: 18px;text-decoration: none;" class="text-dark p-3" id="Saved" onclick="savedCollection()">Saved Collections</a>
-        </div>
-    </div>
-    <div class="container" id="handpickedCollections"></div>
-    <div class="container" id="savedCollections"></div>
-    <div class="container-fluid mt-5" id="ZomatoFooter" style="background-color: rgb(236, 233, 233);">
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <!-- gmail sign in -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id"
+    content="346748137121-lkir5qc08m3bc5bv88etdr3sh4sgeb5p.apps.googleusercontent.com">
+  <div class="container">
+    <div class="row">
+      <div id="zomato-black" class="col-2 mt-2">ZOMATO</div>
+      <div class="col-7">
+        <div class="mt-3 input-group shadow">
+          <div class="p-2 bg-light input-group-append rounded"><i style="color: rgb(221, 76, 76);"
+              class="fas fa-map-marker-alt"></i></div>
 
+          <input class="form-control p-2" type="text" placeholder="Location" id="searchByLocation">
+          <div class="p-2 bg-light input-group-append"><i class="fas fa-caret-down"></i></div>
+          <input class="form-control p-2" type="text" placeholder="Search for restaurant, cuisine or a dish"
+            aria-label="Search" id="searchByRestaurant">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="container" id="locationsOptions">
+          <div class="container" id="restaurantsOptions"></div>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <a class="btn float-right text-dark" style="font-size: 20px;text-decoration: none;" data-toggle="modal"
+          data-target="#myModalLogin">Login</a>
+        <a class="btn float-right text-dark" style="font-size: 20px;text-decoration: none;" data-toggle="modal"
+          data-target="#myModalSignUp">Sign Up</a>
+        <!-- myModalLogin -->
+        <div id="myModalLogin" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-body">Login</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+              <div class="modal-body">
+                <input type="tel" class="input-group-text form-control bg-light" placeholder="Phone" pattern="[0-9]{10}"
+                  maxlength="10">
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-danger form-control">Send One time Password</button>
+                <div class="row">
+                  <div class="col-5">
+                    <hr>
+                  </div>
+                  <div class="col-2 text-center">or</div>
+                  <div class="col-5">
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);"
+                    class="fas fa-envelope mr-2"></i> Continue with Email</button>
+              </div>
+              <div class="modal-body">
+                <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
+                <div class="g-signin2" data-onsuccess="onSignIn"
+                  data-redirecturi="https://zomato-clone-guvi.netlify.app/collections.html"></div>
+                <hr>
+                <span>New to Zomato? <a class="text-danger">Create account</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- myModalSignUp -->
+        <div id="myModalSignUp" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-body">Sign Up</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              </div>
+              <div class="modal-body">
+                <input type="text" class="input-group-text form-control bg-light m-2" placeholder="Full Name"
+                  maxlength="15">
+                <input type="email" class="input-group-text form-control bg-light m-2" placeholder="Email"
+                  maxlength="15">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="Check1">
+                  <label class="form-check-label" for="Check1"><small>I agree to Zomato's <a class="text-danger">Terms
+                        of Service, Privacy Policy and Content Policies</a></small></label>
+                </div>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-default border bg-light form-control">Create Account</button>
+                <div class="row mt-3">
+                  <div class="col-5">
+                    <hr>
+                  </div>
+                  <div class="col-2 text-center">or</div>
+                  <div class="col-5">
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-body">
+                <!-- <button type="button" class="btn btn-transparent border form-control"><i style="color:rgb(221, 76, 76);" class="fab fa-google mr-2"></i>Continue with Google</button> -->
+                <div class="g-signin2" data-onsuccess="onSignIn"
+                  data-redirecturi="https://zomato-clone-guvi.netlify.app/collections.html"></div>
+                <hr>
+                <span>Already have an account? <a class="text-danger">Login</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item " aria-current="page">Home</li>
+        <li class="breadcrumb-item " aria-current="page">Chennai</li>
+        <li class="breadcrumb-item active" aria-current="page">Collections</li>
+      </ol>
+    </nav>
+    <div class="row">
+      <span style="font-size: 30px;">Collections - Chennai</span>
+    </div>
+    <div class="row">
+      <span style="font-size: 18px;">Create and browse lists of the finest restaurants</span>
+    </div>
+    <div class="row">
+      <div style="font-size: 18px;text-decoration: none;" class="text-danger p-3" id="Handpicked"
+        onclick="handpicked()">Handpicked</div>
+      <a style="font-size: 18px;text-decoration: none;" class="text-dark p-3" id="Saved"
+        onclick="savedCollection()">Saved Collections</a>
+    </div>
+  </div>
+  <div class="container" id="handpickedCollections"></div>
+  <div class="container" id="savedCollections"></div>
+  <div class="container-fluid mt-5" id="ZomatoFooter" style="background-color: rgb(236, 233, 233);">
+
+  </div>
+  </div>
+  <div class="container-fluid mt-5" id="ZomatoFooter" style="background-color: rgb(236, 233, 233);">
+
+    <!-- Restaurant Modal -->
+
+    <div id="RestaurantModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: antiquewhite;">
+          <div class="modal-header bg-header">
+            <h2 class="modal-body text-white" id="modalRestName"></h2>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <address><small class="text-danger d-block" id="modalSpan1"></small></address></small>
+            </p>
+            <p class="m-2"><i style="color:rgb(9, 122, 122)" id="modalP1" class="fas fa-phone-volume"></i></p>
+            <p><i style="color:rgb(9, 122, 122)" id="modalCost" class="fas fa-money-check-alt"></i></p>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid" id="modalImg2">
+          </div>
+          <div class="modal-body" id="modalhighlights">
+            <h4 class="modal-body text-danger">Highlights</h4>
+          </div>
+          <div class="modal-body" id="modalCuisines">
+            <h4 class="modal-body text-danger">Cuisines</h4>
+          </div>
+          <div class="modal-body">
+            <a class="btn btn-warning" id="modalRestImage">Check out the pictures</a>
+            <a class="btn btn-danger" id="modalRestMenu">Menu</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
     <script>
-      
-        handpicked()
-        createZomatoFooter()
-
+      handpicked()
+      createZomatoFooter()
     </script>
 </body>
+
 </html>
